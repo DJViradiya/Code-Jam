@@ -1,0 +1,84 @@
+/*  ____  ___    ____  __  ________   ____  ___    ____  __  ________
+   / __ \/   |  / __ \/ / / / ____/  / __ \/   |  / __ \/ / / / ____/
+  / /_/ / /| | / / / / /_/ / __/    / /_/ / /| | / / / / /_/ / __/
+ / _, _/ ___ |/ /_/ / __  / /___   / _, _/ ___ |/ /_/ / __  / /___
+/_/ |_/_/  |_/_____/_/ /_/_____/  /_/ |_/_/  |_/_____/_/ /_/_____/
+
+
+*/
+#include<bits/stdc++.h>
+#define int long long
+#define pb push_back
+#define f1(n) for(int i=0;i<n;i++)
+#define f2(n) for(int i=n-1;i>=0;i--)
+#define fast ios::sync_with_stdio(false);
+using namespace std;
+signed main()
+{
+    fast
+    int t,kk=1;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        int a[n][n];
+        int pp=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                cin>>a[i][j];
+                if(i==j)
+                    pp+=a[i][j];
+            }
+        }
+        int r=0;
+        for(int i=0;i<n;i++)
+        {
+            int x[n];
+            for(int j=0;j<n;j++)
+            {
+                x[j]=a[i][j];
+            }
+            sort(x,x+n);
+            int p=0;
+            for(int i=1;i<n;i++)
+            {
+                if(x[i]==x[i-1])
+                {
+                    p=1;
+                    break;
+                }
+            }
+            if(p==1)
+            r++;
+        }
+
+        int c=0;
+        for(int i=0;i<n;i++)
+        {
+            int x[n];
+            for(int j=0;j<n;j++)
+            {
+                x[j]=a[j][i];
+            }
+            sort(x,x+n);
+            int p=0;
+            for(int i=1;i<n;i++)
+            {
+                if(x[i]==x[i-1])
+                {
+                    p=1;
+                    break;
+                }
+            }
+            if(p==1)
+            c++;
+        }
+        
+        cout<<"Case #"<<kk<<": "<<pp<<" "<<r<<" "<<c<<endl;
+        kk++;
+    }
+
+}
