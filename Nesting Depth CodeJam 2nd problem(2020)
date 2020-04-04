@@ -1,0 +1,66 @@
+/*  ____  ___    ____  __  ________   ____  ___    ____  __  ________
+   / __ \/   |  / __ \/ / / / ____/  / __ \/   |  / __ \/ / / / ____/
+  / /_/ / /| | / / / / /_/ / __/    / /_/ / /| | / / / / /_/ / __/
+ / _, _/ ___ |/ /_/ / __  / /___   / _, _/ ___ |/ /_/ / __  / /___
+/_/ |_/_/  |_/_____/_/ /_/_____/  /_/ |_/_/  |_/_____/_/ /_/_____/
+
+
+*/
+#include<bits/stdc++.h>
+#define int long long
+#define pb push_back
+#define f1(n) for(int i=0;i<n;i++)
+#define f2(n) for(int i=n-1;i>=0;i--)
+#define fast ios::sync_with_stdio(false);
+using namespace std;
+signed main()
+{
+    fast
+    int t,kk=1;
+    cin>>t;
+    while(t--)
+    {
+        string s,s1;
+        cin>>s;
+        int cc=0;
+        int x=s[0]-48,xx=0;
+        for(int i=0;i<x;i++)
+            s1+='(';
+        cc=x;
+        s1+=s[0];
+        for(int i=1;i<s.length();i++)
+        {
+            if(s[i]==s[i-1])
+                s1+=s[i];
+            else
+            {
+                xx=s[i]-48;
+                int tt=x-xx;
+                if(tt>0)
+                {
+                    for(int i=0;i<tt;i++)
+                    {
+                        s1+=')';
+                        cc--;
+                    }
+                    s1+=s[i];
+                }
+                else
+                {
+                    for(int i=0;i<abs(tt);i++)
+                    {
+                        s1+='(';
+                        cc++;
+                    }
+                    s1+=s[i];
+                }
+                x=xx;
+            }
+        }
+        for(int i=0;i<cc;i++)
+            s1+=')';
+        cout<<"Case #"<<kk<<": "<<s1<<endl;
+        kk++;
+    }
+
+}
